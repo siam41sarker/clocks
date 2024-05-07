@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <span class="H"></span>
+        <span class="M"></span><br>
+        <span class="dat"></span>
+    </div>
+    <script>
+        function MyFunc()
+            {
+                var Mydate = new Date();
+                var hr,min = (Mydate.getMinutes()<10)? "0"+Mydate.getMinutes():Mydate.getMinutes(),
+                    sec = (Mydate.getSeconds()<10)? "0"+Mydate.getSeconds():Mydate.getSeconds(),
+                    M = (Mydate.getHours>=12)? "PM":"AM";
+                if(Mydate.getHours()==0)
+                    {
+                        hr = 12;
+                    }
+                else if(Mydate.getHours()>12)
+                    {
+                        hr = Mydate.getHours()-12;
+                    }
+                else
+                    {
+                        hr = Mydate.getHours();
+                    }
+                let showThis = hr+":"+min+":"+sec+":";
+                let AP = M;
+                document.getElementsByClassName("H")[0].innerHTML = showThis;
+                document.getElementsByClassName("M")[0].innerHTML = AP;
+                var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+                month = ["January","February","March","April","May","June","July","August","September","October","November","December"],
+                date = Mydate.getDate();
+                var ds = days[Mydate.getDay()];
+                var mnth = month[Mydate.getMonth()];
+                var d = date;
+                var ShowResult = ds+","+" "+mnth+" "+d;
+                document.getElementsByClassName("dat")[0].innerHTML = ShowResult;
+            }
+            MyFunc();
+            setInterval(()=>
+            MyFunc(),1000);
+    </script>
+</body>
+</html>

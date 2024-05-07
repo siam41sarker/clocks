@@ -1,0 +1,15 @@
+body{
+    background-color:#f1f1f2;
+}
+.container{
+    position:fixed;
+    left:34%;
+    top:35%;
+    background-color:aliceblue;
+    padding:50px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 50px rgba(0,0,0,0.1);
+}
+span{
+    font-size: 50px;
+}
